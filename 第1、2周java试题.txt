@@ -1,0 +1,82 @@
+1、float型float f=3.4是否正确?
+不正确，需要进行强制类型转换。float f=(float)3.4;
+2、当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?
+值传递，Java编程语言只有值传递参数
+3、在Java中一个类被声明为final类型，表示了什么意思?
+表示这个类是终极类，不能被继承。
+4、Error与Exception有什么区别?
+Error是系统中的错误，只能通过修改程序修正，一般指内存空间不足，系统崩溃等；
+Exception表示程序可以处理的异常，可以捕获且可能恢复。
+5、谈谈final, finally的区别
+final是修饰符，如果类被fianl修饰，就意味着不能再作为父类被继承。因此一个类不能既被声明为adstrac又被声明为fianl；
+一个方法被final修饰，意味着它只能被使用，不能被重写；一个人变量被fina修饰，意味着它在使用过程中，不可以被改变。
+finally块在异常处理时用来执行任何清除操作。如果抛出一个异常，那么相匹配的catch字句就会执行，然后进入fianlly块，
+就算不抛出异常，如果有finally块，也会执行。
+（另外还有finalize是方法名。java技术允许使用finalize()方法在垃圾收集器将对象从内存中清除之前做必要的清理工作。）
+6、String s = new String(“xyz“);创建了几个String Object?
+如果String常量池中已经存在xyz，那么只创建了一个，反之则两个。
+7、short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有什么错?
+前者缺少了强制类型装换。s1是short类型的，而1是int类型的，；两者相加结果应该是int类型的。
+正确写法应该是：s1 = (short) (s1 + 1);
+后者是正确的。执行s1+=1的时候其实执行的是s1 = (short) (s1 + 1); 其中会有一个强制转换的过程。
+8、数组有没有length()这个方法? String有没有length()这个方法?
+数组没有length()的方法，但是有这个属性，可以获取数组的长度。String有，用来获取字符串的长度
+9、Overload和Override的区别
+Overload是重载的意思，Override是覆盖的意思，也就是重写。
+前者表示同一个类中可以有多个名称相同的方法，但这些方法的参数列表各不相同（即参数个数或类型不同）。
+后者方法名、参数、返回值不同、子类方法不能缩小父类方法的访问权限、子类方法不能抛出比父类方法更多的异常（但子类方法可以不抛异常）、
+存在于父类和子类之间、方法被定义为final时不能被重写。
+10、abstract class和interface有什么区别?
+抽象类可以有构造方法，接口中不能有构造方法。
+抽象类中可以有普通成员变量，接口中没有普通成员变量。
+抽象类中可以包含非抽象的普通方法，接口中的所有方法必须都是抽象的，不能有非抽象的普通方法。。
+抽象类中可以包含静态方法，接口中不能包含静态方法
+11、构造器Constructor是否可被override?
+构造器Constructor不能被继承，因此不能重写Override，但可以被重载Overload。
+12、是否可以继承String类?
+不可以，因为String类有final修饰符，而final修饰的类是不能被继承的
+13、输出结果：FatherClass Create
+                        FatherClass Create
+                        hildClass Create
+14、多线程有几种实现方法,都是什么?同步有几种实现方法,都是什么?
+多线程有两种实现方法，分别是继承Thread类与实现Runnable接口
+同步的实现方面有两种，分别是synchronized,wait与notify
+15、请说出你所知道的线程同步的方法
+wait():使一个线程处于等待状态。
+sleep():使一个正在运行的线程处于睡眠状态。
+notify():唤醒一个处于等待状态的线程。
+Allnotity():唤醒所有处入等待状态的线程。
+16、当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法?
+其他方法前是否加了synchronized关键字，如果没加，则能；
+如果这个方法内部调用了wait，则可以进入其他synchronized方法。
+17、选C、E
+        A：错误，
+        B：错误，
+        D：错误，静态类中只能包括静态成员
+18、String与StringBuffer的区别
+String是一个不可变对象，一旦被创建，就不能修改它的值，而StringBuffer是一个
+可变对象，当对他进行修改的时候不会像String那样重新建立对象，只能通过构造函数来建立。
+字符串连接操作中StringBuffer的效率比String高。
+19、Java类实现序例化的方法是?
+实现Serializable接口。public class Duration implements Serializable {}
+20、Collection框架中实现比较要实现什么接口?
+Comparable/comparator 
+21、介绍Java中的Collection 框架结构
+Collection是集合的上级接口，他的子接口是list和set，list是有序的允许元素重复
+set是有序的，不允许元素重复 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
